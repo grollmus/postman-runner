@@ -10,7 +10,20 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "https://mall.industry.siemens.com/tst/",
+					"protocol": "https",
+					"host": [
+						"mall",
+						"industry",
+						"siemens",
+						"com"
+					],
+					"path": [
+						"tst",
+						""
+					]
+				}
 			},
 			"response": []
 		}
