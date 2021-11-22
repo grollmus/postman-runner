@@ -5,14 +5,14 @@ const newman = require('newman');
 
 const args = cliParser.getCliArguments();
 
-const { runCount, collection } = args;
+const { runCount = 10, collection } = args;
 
 if (!collection) {
   throw new Error('No path to collection provided! Use --collection');
 }
 
 const parametersForTestRun = {
-  collection: path.join(__dirname, collection), // your collection
+  collection: path.join(__dirname, collection),
   reporters: 'cli',
 };
 

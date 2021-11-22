@@ -1,10 +1,24 @@
 describe('postman-runner', () => {
   beforeEach(() => {
+    jest.resetModules();
     process.argv = ['', ''];
   });
 
   it('should fail when no path to collection was provided.', () => {
     expect(() => require('./index.js')).toThrow('No path to collection provided! Use --collection');
+  });
+
+  it('should run collection 10 times when no runcount is provided.', () => {
+    jest.doMock('newman', () => {
+      return { run: jest.fn(() => {}) };
+    });
+    const newman = require('newman');
+
+    const newmanRunSpy = jest.spyOn(newman, 'run');
+    process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"'];
+
+    require('./index.js');
+    expect(newmanRunSpy).toHaveBeenCalledTimes(10);
   });
 
   it('should run collection multiple times.', () => {
@@ -13,10 +27,11 @@ describe('postman-runner', () => {
     });
     const newman = require('newman');
 
+    const newmanRunSpy = jest.spyOn(newman, 'run');
     process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"', '--runCount=30'];
 
     require('./index.js');
-    expect(newman.run).toHaveBeenCalledTimes(30);
+    expect(newmanRunSpy).toHaveBeenCalledTimes(30);
   });
 
   afterEach(() => {
