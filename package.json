@@ -4,7 +4,7 @@
   "description": "Runs postman collection async",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js --runCount=30 --collection=./assets/TSTcloud.postman_collection.json",
+    "start": "node index.js --runCount=30 --collection=./sample-collections/TSTcloud.postman_collection.json",
     "test": "jest"
   },
   "repository": {
