@@ -1,6 +1,6 @@
-export function getCliArguments() {
+const getCliArguments = function() {
   const args = {};
-  process.argv.slice(2).map((element) => {
+  process.argv.slice(1).map((element) => {
       const matches = element.match( '--([a-zA-Z0-9]+)=(.*)');
       if ( matches ){
         args[matches[1]] = matches[2]
@@ -9,3 +9,7 @@ export function getCliArguments() {
   });
   return args;
 };
+
+module.exports ={
+  getCliArguments
+}

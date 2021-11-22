@@ -1,9 +1,9 @@
-import { getCliArguments } from './cli-parser';
+const cliParser = require('./cli-parser.js');
 
 describe('cli-parser', () => {
   it('should return arguments', () => {
-    process.argv = 'test --xyz=var --an=blu'
-    const args = getCliArguments();
-    expect(args).toBe('');
+    process.argv = ['path', '--foo=bar', '--foobar=false'];
+    const args = cliParser.getCliArguments();
+    expect(args).toStrictEqual({ foo: 'bar', foobar: 'false' });
   });
 });

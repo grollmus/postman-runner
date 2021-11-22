@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Runs postman collection async",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node index.js --TEST_ENV_VAR=test",
+    "start": "node index.js --runCount=30 --collection=./assets/TSTcloud.postman_collection.json",
     "test": "jest"
   },
   "repository": {
