@@ -1,0 +1,30 @@
+{
+  "name": "postman-runner",
+  "version": "1.0.0",
+  "description": "Runs postman collection async",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js --TEST_ENV_VAR=test",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grollmus/postman-runner.git"
+  },
+  "author": "Alexander Wiesinger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grollmus/postman-runner/issues"
+  },
+  "homepage": "https://github.com/grollmus/postman-runner#readme",
+  "dependencies": {
+    "async": "^3.2.1",
+    "newman": "^5.3.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1"
+  }
+}
