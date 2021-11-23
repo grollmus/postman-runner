@@ -13,6 +13,11 @@ describe('postman-runner', () => {
     expect(() => require('./index.js')).toThrow('Provided runCount is less or equal than 0!');
   });
 
+  it('should fail when runCount is not an integer.', () => {
+    process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"', '--runCount=asdf'];
+    expect(() => require('./index.js')).toThrow('The runCount is not an integer!');
+  });
+
   it('should run collection 10 times when no runcount is provided.', () => {
     jest.doMock('newman', () => {
       return { run: jest.fn(() => {}) };
