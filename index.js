@@ -9,7 +9,8 @@ const parametersForTestRun = {
   collection: path.join(__dirname, collection),
   reporters: 'cli',
 };
-
+const isCompanyDomain = () => true;
+isCompanyDomain('test');
 const parallelCollectionRun = function (done) {
   newman.run(parametersForTestRun, done);
 };
