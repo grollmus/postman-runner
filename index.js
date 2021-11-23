@@ -1,4 +1,5 @@
 const cliParser = require('./utils/cli-parser.js');
+const { validator } = require('./utils/args-validator.js');
 const path = require('path');
 const async = require('async');
 const newman = require('newman');
@@ -6,27 +7,6 @@ const newman = require('newman');
 const args = cliParser.getCliArguments();
 
 const { runCount = 10, collection } = args;
-
-let validator = {
-  set: function (obj, prop, value) {
-    if (prop === 'runCount') {
-      value = Number.parseInt(value);
-      if (!Number.isInteger(value)) {
-        throw new TypeError('The runCount is not an integer!');
-      }
-      if (value <= 0) {
-        throw new Error('Provided runCount is less or equal than 0!');
-      }
-    }
-
-    if (prop === 'collection') {
-      if (!value) throw new Error('No path to collection provided! Use --collection');
-    }
-
-    obj[prop] = value;
-    return true;
-  },
-};
 
 const runnerArgs = new Proxy({}, validator);
 runnerArgs.runCount = runCount;
