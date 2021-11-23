@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const cliParser = require('./utils/cli-parser.js');
 const path = require('path');
 const async = require('async');

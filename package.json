@@ -1,10 +1,10 @@
 {
   "name": "@ttwiesal/postman-runner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Runs postman collection async",
   "main": "index.js",
   "bin": {
-    "postman-runner": "index.js"
+    "postman-runner": "./index.js"
   },
   "scripts": {
     "start": "node index.js --runCount=30 --collection=./sample-collections/TSTcloud.postman_collection.json",
