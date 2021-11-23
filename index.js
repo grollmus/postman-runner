@@ -8,7 +8,7 @@ const newman = require('newman');
 const { runCount, collection } = cliParser.getCliArguments();
 
 const parametersForTestRun = {
-  collection: path.join(__dirname, collection),
+  collection: collection,
   reporters: 'cli',
 };
 
