@@ -32,7 +32,7 @@ for (let index = 0; index < runCount; index++) {
 async.parallel(commands, (err, results) => {
   err && console.error(err);
 
-  results.forEach(function (result) {
+  results.forEach((result) => {
     var failures = result.run.failures;
     console.info(failures.length ? JSON.stringify(failures.failures, null, 2) : `${result.collection.name} ran successfully.`);
   });
