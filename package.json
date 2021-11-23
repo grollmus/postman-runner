@@ -1,5 +1,5 @@
 {
-  "name": "postman-runner",
+  "name": "@ttwiesal/postman-runner",
   "version": "1.0.0",
   "description": "Runs postman collection async",
   "main": "index.js",
