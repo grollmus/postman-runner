@@ -11,6 +11,10 @@ if (!collection) {
   throw new Error('No path to collection provided! Use --collection');
 }
 
+if (runCount <= 0) {
+  throw new Error('Provided runCount is less or equal than 0!');
+}
+
 const parametersForTestRun = {
   collection: path.join(__dirname, collection),
   reporters: 'cli',
