@@ -24,10 +24,7 @@ const parallelCollectionRun = function (done) {
   newman.run(parametersForTestRun, done);
 };
 
-let commands = [];
-for (let index = 0; index < runCount; index++) {
-  commands.push(parallelCollectionRun);
-}
+let commands = Array(Number.parseInt(runCount)).fill(parallelCollectionRun);
 
 async.parallel(commands, (err, results) => {
   err && console.error(err);
