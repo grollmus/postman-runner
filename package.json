@@ -1,6 +1,6 @@
 {
   "name": "@ttwiesal/postman-runner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Runs postman collection async",
   "main": "index.js",
   "scripts": {
