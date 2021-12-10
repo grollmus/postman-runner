@@ -1,4 +1,5 @@
 const { validator } = require('./args-validator.js');
+const chalk = require('chalk');
 
 const parseAllCliArguments = function () {
   const args = {};
@@ -20,7 +21,7 @@ const getCliArguments = () => {
     validatedArgs.collection = collection;
     return validatedArgs;
   } catch (error) {
-    console.error(error.message);
+    console.error(chalk.bold.bgRed(error.message));
   }
 };
 
