@@ -14,11 +14,14 @@ const parseAllCliArguments = function () {
 const getCliArguments = () => {
   const { runCount = 10, collection } = parseAllCliArguments();
 
-  const validatedArgs = new Proxy({}, validator);
-  validatedArgs.runCount = runCount;
-  validatedArgs.collection = collection;
-
-  return validatedArgs;
+  try {
+    const validatedArgs = new Proxy({}, validator);
+    validatedArgs.runCount = runCount;
+    validatedArgs.collection = collection;
+    return validatedArgs;
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 module.exports = {
