@@ -10,12 +10,13 @@
   const cliArguments = cliParser.getCliArguments();
   if (!cliArguments) return;
 
-  const { runCount, collection, insecure } = cliArguments;
+  const { runCount, collection, insecure, folder } = cliArguments;
 
   const parametersForTestRun = {
     collection: collection,
     reporters: 'cli',
     insecure,
+    folder,
   };
 
   const parallelCollectionRun = function (done) {
