@@ -29,7 +29,7 @@
 
     results.forEach((result) => {
       var failures = result.run.failures;
-      console.info(chalk.bold.bgGreenBright(failures.length ? JSON.stringify(failures.failures, null, 2) : `${result.collection.name} ran successfully.`));
+      console.info(chalk.bgGreenBright.bold(failures.length ? JSON.stringify(failures.failures, null, 2) : `${result.collection.name} ran successfully.`));
     });
   });
 })();

@@ -48,6 +48,26 @@ describe('postman-runner', () => {
     expect(newmanRunSpy).toHaveBeenCalledTimes(30);
   });
 
+  it('should write error to console', () => {
+    jest.mock('async', () => {
+      const asyncModule = jest.requireActual('async');
+
+      //Mock the default export and named export 'foo'
+      return {
+        __esModule: true,
+        ...asyncModule,
+        parallel: jest.fn().mockImplementation((commands, callback) => {
+          callback(new Error('Testerror'), []);
+        }),
+      };
+    });
+    process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"', '--runCount=30'];
+
+    require('./index.js');
+
+    expect(consoleErrorSpy).toHaveBeenCalledWith('Error: Testerror');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
