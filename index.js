@@ -11,7 +11,7 @@
   if (!cliArguments) return;
 
   const { runCount, collection, insecure, folder } = cliArguments;
-
+  
   const parametersForTestRun = {
     collection: collection,
     reporters: 'cli',

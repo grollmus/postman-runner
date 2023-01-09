@@ -13,7 +13,7 @@ const parseAllCliArguments = function () {
 };
 
 const getCliArguments = () => {
-  const { runCount = 10, collection, insecure, folder = '' } = parseAllCliArguments();
+const { runCount = 10, collection, insecure, folder = '' } = parseAllCliArguments();
 
   try {
     const validatedArgs = new Proxy({}, validator);
@@ -21,7 +21,6 @@ const getCliArguments = () => {
     validatedArgs.collection = collection;
     validatedArgs.insecure = insecure;
     validatedArgs.folder = folder;
-
     return validatedArgs;
   } catch (error) {
     console.error(chalk.bold.bgRed(error.message));

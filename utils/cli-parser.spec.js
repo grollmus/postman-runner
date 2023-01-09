@@ -17,6 +17,7 @@ describe('cli-parser', () => {
     {
       argv: ['path', '--collection=bar', '--runCount=20', '--folder=thisismycustomfolder'],
       expected: { collection: 'bar', runCount: 20, insecure: undefined, folder: 'thisismycustomfolder' },
+
     },
   ])('should return valid runner args', ({ argv, expected }) => {
     process.argv = argv;
