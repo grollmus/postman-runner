@@ -1,6 +1,6 @@
 {
   "name": "@ttwiesal/postman-runner",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Runs postman collection async",
   "main": "index.js",
   "bin": {
@@ -23,13 +23,13 @@
   "homepage": "https://github.com/grollmus/postman-runner#readme",
   "dependencies": {
     "async": "^3.2.1",
-    "chalk": "^4.0.0",
-    "newman": "^5.3.0",
+    "chalk": "^5.3.0",
+    "newman": "^6.0.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
-    "jest": "^27.3.1",
-    "prettier": "^2.4.1"
+    "@types/jest": "^29.5.5",
+    "jest": "^29.5.5",
+    "prettier": "^3.0.3"
   }
 }
