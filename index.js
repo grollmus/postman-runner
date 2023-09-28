@@ -2,7 +2,6 @@
 
 (function run() {
   const cliParser = require('./utils/cli-parser.js');
-  const path = require('path');
   const async = require('async');
   const newman = require('newman');
   const chalk = require('chalk');
@@ -11,7 +10,7 @@
   if (!cliArguments) return;
 
   const { runCount, collection, insecure, folder } = cliArguments;
-  
+
   const parametersForTestRun = {
     collection: collection,
     reporters: 'cli',
