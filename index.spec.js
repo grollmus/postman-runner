@@ -1,5 +1,6 @@
 describe('postman-runner', () => {
   const consoleErrorSpy = jest.spyOn(console, 'error');
+  const chalk = require('chalk');
   beforeEach(() => {
     jest.resetModules();
     process.argv = ['', ''];
@@ -7,19 +8,19 @@ describe('postman-runner', () => {
 
   it('should fail when no path to collection was provided.', () => {
     require('./index.js');
-    expect(consoleErrorSpy).toHaveBeenCalledWith('No path to collection provided! Use --collection');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(chalk.bold.bgRed('No path to collection provided! Use --collection'));
   });
 
   it('should fail when runCount is 0.', () => {
     process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"', '--runCount=0'];
     require('./index.js');
-    expect(consoleErrorSpy).toHaveBeenCalledWith('Provided runCount is less or equal than 0!');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(chalk.bold.bgRed('Provided runCount is less or equal than 0!'));
   });
 
   it('should fail when runCount is not an integer.', () => {
     process.argv = ['test', '--collection="./sample-collections/TSTcloud.postman_collection.json"', '--runCount=asdf'];
     require('./index.js');
-    expect(consoleErrorSpy).toHaveBeenCalledWith('The runCount is not an integer!');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(chalk.bold.bgRed('The runCount is not an integer!'));
   });
 
   it('should run collection 10 times when no runcount is provided.', () => {
@@ -65,7 +66,7 @@ describe('postman-runner', () => {
 
     require('./index.js');
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith('Error: Testerror');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(chalk.bold.bgRed('Error: Testerror'));
   });
 
   afterEach(() => {
